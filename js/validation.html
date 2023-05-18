@@ -1,0 +1,56 @@
+<html>
+ <head>
+  <title>Validate</title>
+  <style>
+    div{
+      display:flex;
+      justify-content:center;
+      height:100vh;
+      align-items:center;
+    }
+    form{
+      background-color:cyan;
+      width:350px;
+      text-align:center;
+      height:350px;
+      font-size:20px;
+      border:2px solid black;
+    }
+    h2{
+      font-size:25px;
+    }
+    input[type="submit"]{
+       padding:10px;    
+    }
+  </style>
+ </head>
+ <body class="container-fluid">
+  <div>
+    <form onsubmit="return false">
+    <h2>Login Form</h2> 
+    <p>UserName:</p>
+    <input type="text" name="uname">
+    <p>Password:</p>
+    <input type="password" name="pw">
+    <br><br>
+    <input type="submit" value="Submit" onclick="validate(this.form);">
+   </form>
+  </div>
+  <script>
+     function validate(form){
+       let uname = form.uname.value;
+       let pw    = form.pw.value;
+       const uPattern = /^[a-zA-Z]{3,}$/;
+       const pPattern = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]){8,}/;
+       if(!uname.match(uPattern)){
+          alert("Invalid UserName");
+       }else if(!pw.match(pPattern)){
+          alert("Invalid Password");
+       }else{
+          document.write(new Date().toLocaleTimeString())
+          document.body.style.backgroundColor = "red";
+       }
+     }
+  </script>
+ </body>
+</html>
