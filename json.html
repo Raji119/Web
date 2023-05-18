@@ -1,0 +1,42 @@
+<html>
+ <head>
+   <title>Json</title>
+   <script>
+
+    function display(){
+       let stu =[
+                    {
+                      "name" : "Pushpitha",
+                       "age"  : 21               
+                    },
+                                   {
+                      "name" : "Raksha",
+                       "age"  : "21"
+                    }, 
+                         {
+                      "name" : "Raji",
+                       "age"  : "21"
+                    } 
+     
+                ];
+
+      let  table=`<table> 
+                <tr>
+                   <td>Name</td>
+                    <td>Age</td>
+                </tr>`;
+      stu.forEach(function(d){
+         table+=`<tr><td>${d.name}</td><td>${d.age}</td></tr>`;
+    });
+  table+=`</table>`;
+  document.getElementById("output").innerHTML = table;
+};
+   </script>
+ </head>
+ <body>
+    <form>
+       <input type="button" onclick="display()" value="Display Data">
+    </form> 
+     <div id="output" name="output"></div>
+ </body>
+</html>
