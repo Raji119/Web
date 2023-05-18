@@ -1,0 +1,38 @@
+<html>
+ <head>
+   <title>Bar Chart</title>
+   <script src ="https://d3js.org/d3.v7.min.js"></script>
+ </head>
+ <body>
+   <h1>Simple Bar Graph</h1>
+   <svg></svg>
+   <script>
+
+      let svgWidth =500,svgHeight=300,barPadding=5;
+      let d = [20,40,60,30];
+      let barWidth=svgWidth/d.length;
+      
+      let svg = d3.select("svg")
+                .attr("width",svgWidth)
+                .attr("height",svgHeight);
+      
+      let bar = svg.selectAll("rect")
+                 .data(d)
+                 .enter()
+                 .append("rect")
+                 .attr("y",function(d){return svgHeight-d})
+                 .attr("width",function(d){return barWidth-barPadding})
+                 .attr("height",function(d){return d})
+                 .attr("transform",function(d,i){return "translate("+i*barWidth+",0)"});
+      
+      let text = svg.selectAll("text")
+                   .data(d)
+                   .enter()
+                   .append("text")
+                   .text(function(d){return d})
+                   .attr("y",function(d){return svgHeight-d-2})
+                   .attr("x",function(d,i){return barWidth*i+10});
+   </script>
+ </body>
+</html>
+   
