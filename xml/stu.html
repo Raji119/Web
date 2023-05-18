@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>XML</title>
+ </head>
+ <body>
+   <p id="demo"> </p>
+   <script>
+      function display(){
+         var xhttp = new XMLHttpRequest();
+
+         xhttp.onreadystatechange = function(){
+               if(this.readystate==4 && this.status==200)
+                   myFunc(this);
+         };
+         xhttp.open("GET","stu.xml",true);
+         xhttp.send();
+         
+
+        function myFunc(xml) {
+
+           var xmlDoc = xml.responseXML;
+           let table = `<table><tr><td>Name</td><td>Age</td></tr>`;
+           var x =xmlDoc.getElementByName("class");
+           for(var i=0;i<x.length;i++){
+              table+=`<tr><td>`+x[i].getElementByName("name")[0].childNodes[0].nodevalues+`</td><td>`+
+              +x[i].getElementByName("age")[0].childNodes[0].nodevalues +`</td></tr>`; 
+           }
+              table+=`</table>`;
+           console.log(table);
+           document.getElementById("output").innerHTML=table;
+}
+}         
+   </script>
+   
+<form>
+       <input type="button" onclick="display()" value="Display Data">
+    </form>
+     <div id="output" name="output"></div>
+</body>
+</html>
