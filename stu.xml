@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<class>
+ <student>
+   <name>Pushpitha</name>
+   <age>24</age>
+ </student>
+ <student>
+   <name>Raksha</name>
+   <age>23</age>
+ </student>
+ <student>
+   <name>Raji</name>
+   <age>22</age>
+ </student>
+</class>
+
