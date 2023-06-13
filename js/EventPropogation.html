@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		#div1,#div4 {
+			background-color: lightgreen;
+			padding: 24px;
+			border: 1px solid black;
+		}
+
+		#div2,#div5 {
+			background-color: yellow;
+			padding: 18px;
+			border: 1px solid black;
+
+		}
+
+		#div3,#div6 {
+			background-color: orange;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+
+<body>
+	<h3>Event Bubbling</h3>
+
+	<div id="div1">
+		Component 1
+		<div id="div2">
+			component 2
+			<div id="div3">
+				component 3
+			</div>
+		</div>
+	</div>
+
+	<h3>Event Capturing</h3>	
+
+	<div id="div4">
+		Component 1
+		<div id="div5">
+			component 2
+			<div id="div6">
+				component 3
+			</div>
+		</div>
+	</div>
+
+	<!-- Javascript code for event bubbling -->
+	<script>
+		let div1 = document.querySelector("#div1");
+		let div2 = document.querySelector("#div2");
+		let div3 = document.querySelector("#div3");
+
+		div1.addEventListener("click", function (event) {
+			alert("Component 1 event clicked");
+		});
+
+		div2.addEventListener("click", function (event) {
+			alert("Component 2 event clicked");
+		});
+
+		div3.addEventListener("click", function (event) {
+			alert("Component 3 event clicked");
+		});
+
+		let div4 = document.querySelector("#div4");
+		let div5 = document.querySelector("#div5");
+		let div6 = document.querySelector("#div6");
+
+		div4.addEventListener("click", function (event) {
+			alert("Component 1 event clicked");
+		},true);
+
+		div5.addEventListener("click", function (event) {
+			alert("Component 2 event clicked");
+		},true);
+
+		div6.addEventListener("click", function (event) {
+			alert("Component 3 event clicked");
+		},true);
+	</script>
+</body>
+
+</html>
+
